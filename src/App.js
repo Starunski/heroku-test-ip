@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import "./App.scss";
 import { getUserLocation } from "./store/location/location.thunks";
 import { useDispatch, useSelector } from "react-redux";
-// import { useDispatch  } from "react-redux";
 import { selectLocation } from "./store/location";
 import { setLastSearch, addToAllSearch } from "./store/location";
 import { Map } from "./components/Map";
 import Button from "@material-ui/core/Button";
 import { TextField } from "@material-ui/core";
-import { Card } from "@material-ui/core";
-import Paper from "@material-ui/core/Paper";
 import { HistoryList } from "./components/historyList/HistoryList";
 
 const App = () => {
@@ -68,7 +65,6 @@ const App = () => {
       <div className="wrapper">
         {locationStore.allLocations.length !== 0 && (
           <HistoryList locationStore={locationStore} />
-     
         )}
         <div className="wrapper-block">
           <div className="info-block">

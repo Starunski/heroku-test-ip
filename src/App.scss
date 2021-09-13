@@ -1,0 +1,104 @@
+.App {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.wrapper {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
+
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 5px #5c5c5c83;
+
+  border-radius: 10px;
+}
+
+.wrapper-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-block {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0px;
+
+  .search-input {
+    padding-right: 10px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    align-items: center;
+    .input {
+      width: 90%;
+      margin: 10px;
+    }
+  }
+  .search-button-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.info-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.map-block {
+  width: 30em;
+  height: 20em;
+  box-shadow: 5px 5px 15px 5px #5c5c5c8f;
+  padding: 10px;
+  border-radius: 12px;
+}
+.data-block {
+  padding: 10px;
+}
+
+input:invalid:not(:placeholder-shown) {
+  border: 2px solid red !important;
+}
+
+input:invalid:not(:placeholder-shown) + [data-validation-text] {
+  color: red !important;
+  display: block;
+}
+
+[data-validation-text] {
+  display: none;
+}
+
+@media only screen and (max-width: 415px) {
+  .App {
+    height: 100%;
+  }
+  .map-block {
+    width: 20em;
+    height: 15em;
+  }
+  .wrapper-block {
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 715px) {
+  .App {
+    height: 100%;
+  }
+  .map-block {
+    width: 20em;
+    height: 15em;
+  }
+  .wrapper-block {
+    padding: 10px;
+  }
+}

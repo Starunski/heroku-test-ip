@@ -4,12 +4,15 @@ import "./historyList.css";
 export const HistoryList = ({ locationStore }) => {
   return (
     <div className="history-search-block">
-     <h4> History of all searches </h4>
-      <ul>
+      <h4> History of all searches </h4>
+  
         {locationStore.allLocations.map((location) => (
-          <li key={location.ip + Math.random(100)}>{location.ip}</li>
+          <div key={location.ip + Math.random(100)}>
+            {" "}
+            <span>{location.ip}</span>
+          </div>
         ))}
-      </ul>
+     
     </div>
   );
 };
