@@ -68,29 +68,35 @@ const App = () => {
         )}
         <div className="wrapper-block">
           <div className="info-block">
-            <div className="map-block">
-              {" "}
-              <Map
-                viewport={{
-                  longitude: locationStore.currentLocation.longitude,
-                  latitude: locationStore.currentLocation.latitude,
-                  zoom: 10,
-                }}
-                setViewport={setViewport}
-              />{" "}
-            </div>
-            <div className="data-block">
-              {locationStore.allLocations.length !== 0 && (
-                <ul>
-                  <li>City: {locationStore.currentLocation.city}</li>{" "}
-                  <li>ip: {locationStore.currentLocation.ip}</li>
-                  <li>zip-code: {locationStore.currentLocation.zip}</li>
-                  <li>latitude: {locationStore.currentLocation.latitude}</li>
-                  <li>longitude: {locationStore.currentLocation.longitude}</li>
-                  <li>country: {locationStore.currentLocation.country_name}</li>
-                </ul>
-              )}
-            </div>
+            {locationStore.allLocations.length !== 0 && (
+              <>
+                <div className="map-block">
+                  {" "}
+                  <Map
+                    viewport={{
+                      longitude: locationStore.currentLocation.longitude,
+                      latitude: locationStore.currentLocation.latitude,
+                      zoom: 10,
+                    }}
+                    setViewport={setViewport}
+                  />{" "}
+                </div>
+                <div className="data-block">
+                  <ul>
+                    <li>City: {locationStore.currentLocation.city}</li>{" "}
+                    <li>ip: {locationStore.currentLocation.ip}</li>
+                    <li>zip-code: {locationStore.currentLocation.zip}</li>
+                    <li>latitude: {locationStore.currentLocation.latitude}</li>
+                    <li>
+                      longitude: {locationStore.currentLocation.longitude}
+                    </li>
+                    <li>
+                      country: {locationStore.currentLocation.country_name}
+                    </li>
+                  </ul>
+                </div>
+              </>
+            )}
           </div>
           <div className="search-block">
             <div className="search-input">
@@ -120,39 +126,42 @@ const App = () => {
             </div>
           </div>
           <div className="info-block">
-            <div className="map-block">
-              <Map
-                viewport={{
-                  longitude:
-                    locationStore.lastSearchLocation &&
-                    locationStore.lastSearchLocation.longitude,
-                  latitude:
-                    locationStore.lastSearchLocation &&
-                    locationStore.lastSearchLocation.latitude,
-                  zoom: 10,
-                }}
-                setViewport={setLastViewport}
-              />
-            </div>
-            <div className="data-block">
-              {locationStore.allLocations.length !== 0 &&
-                locationStore.lastSearchLocation && (
-                  <ul>
-                    <li>City: {locationStore.lastSearchLocation.city}</li>
-                    <li>ip: {locationStore.lastSearchLocation.ip}</li>
-                    <li>zip-code: {locationStore.lastSearchLocation.zip}</li>
-                    <li>
-                      latitude: {locationStore.lastSearchLocation.latitude}
-                    </li>
-                    <li>
-                      longitude: {locationStore.lastSearchLocation.longitude}
-                    </li>
-                    <li>
-                      country: {locationStore.lastSearchLocation.country_name}
-                    </li>
-                  </ul>
-                )}
-            </div>
+            {locationStore.allLocations.length !== 0 &&
+              locationStore.lastSearchLocation && (
+                <>
+                  {" "}
+                  <div className="map-block">
+                    <Map
+                      viewport={{
+                        longitude:
+                          locationStore.lastSearchLocation &&
+                          locationStore.lastSearchLocation.longitude,
+                        latitude:
+                          locationStore.lastSearchLocation &&
+                          locationStore.lastSearchLocation.latitude,
+                        zoom: 10,
+                      }}
+                      setViewport={setLastViewport}
+                    />
+                  </div>
+                  <div className="data-block">
+                    <ul>
+                      <li>City: {locationStore.lastSearchLocation.city}</li>
+                      <li>ip: {locationStore.lastSearchLocation.ip}</li>
+                      <li>zip-code: {locationStore.lastSearchLocation.zip}</li>
+                      <li>
+                        latitude: {locationStore.lastSearchLocation.latitude}
+                      </li>
+                      <li>
+                        longitude: {locationStore.lastSearchLocation.longitude}
+                      </li>
+                      <li>
+                        country: {locationStore.lastSearchLocation.country_name}
+                      </li>
+                    </ul>
+                  </div>
+                </>
+              )}
           </div>
         </div>
       </div>
