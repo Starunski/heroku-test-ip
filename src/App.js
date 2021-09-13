@@ -1,37 +1,37 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-// import { getUserLocation } from "./store/location/location.thunks";
-// import { useDispatch, useSelector } from "react-redux";
-import { useDispatch  } from "react-redux";
-// import { selectLocation } from "./store/location";
-// import { setLastSearch, addToAllSearch } from "./store/location";
+import { getUserLocation } from "./store/location/location.thunks";
+import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch  } from "react-redux";
+import { selectLocation } from "./store/location";
+import { setLastSearch, addToAllSearch } from "./store/location";
 import { Map } from "./components/Map";
 import Button from "@material-ui/core/Button";
 import { TextField } from "@material-ui/core";
-// import { Card } from "@material-ui/core";
-// import Paper from "@material-ui/core/Paper";
-// import { HistoryList } from "./components/historyList/HistoryList";
+import { Card } from "@material-ui/core";
+import Paper from "@material-ui/core/Paper";
+import { HistoryList } from "./components/historyList/HistoryList";
 
 const App = () => {
-  // const locationStore = useSelector(selectLocation);
-  // const dispatch = useDispatch();
+  const locationStore = useSelector(selectLocation);
+  const dispatch = useDispatch();
   const reg =
     "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
 
   const [viewport, setViewport] = useState({
-    // longitude: locationStore.currentLocation.longitude,
-    // latitude: locationStore.currentLocation.latitude,
-    // zoom: 14,
+    longitude: locationStore.currentLocation.longitude,
+    latitude: locationStore.currentLocation.latitude,
+    zoom: 14,
   });
 
   const [lastViewport, setLastViewport] = useState({
-    // longitude:
-    //   locationStore.lastSearchLocation &&
-    //   locationStore.lastSearchLocation.longitude,
-    // latitude:
-    //   locationStore.lastSearchLocation &&
-    //   locationStore.lastSearchLocation.latitude,
-    // zoom: 14,
+    longitude:
+      locationStore.lastSearchLocation &&
+      locationStore.lastSearchLocation.longitude,
+    latitude:
+      locationStore.lastSearchLocation &&
+      locationStore.lastSearchLocation.latitude,
+    zoom: 14,
   });
 
   const [ip, setIp] = useState("");
@@ -43,16 +43,16 @@ const App = () => {
 
   const getBrowserPosition = (pos) => {
     const data = pos.coords;
-    // console.log(`data:`, data);
+    console.log(`data:`, data);
   };
 
   function error(err) {
-    // console.warn(`ERROR(${err.code}): ${err.message}`);
+    console.warn(`ERROR(${err.code}): ${err.message}`);
   }
 
   const onHandelSearch = () => {
-    // dispatch(getUserLocation(ip));
-    // dispatch(setLastSearch());
+    dispatch(getUserLocation(ip));
+    dispatch(setLastSearch());
   };
 
   useEffect(() => {
@@ -66,25 +66,25 @@ const App = () => {
   return (
     <div className="App">
       <div className="wrapper">
-        {/* {locationStore.allLocations.length !== 0 && (
-          <HistoryList locationStore={locationStore} /> */}
+        {locationStore.allLocations.length !== 0 && (
+          <HistoryList locationStore={locationStore} />
      
-
+        )}
         <div className="wrapper-block">
           <div className="info-block">
             <div className="map-block">
               {" "}
               <Map
                 viewport={{
-                  // longitude: locationStore.currentLocation.longitude,
-                  // latitude: locationStore.currentLocation.latitude,
+                  longitude: locationStore.currentLocation.longitude,
+                  latitude: locationStore.currentLocation.latitude,
                   zoom: 10,
                 }}
                 setViewport={setViewport}
               />{" "}
             </div>
             <div className="data-block">
-              {/* {locationStore.allLocations.length !== 0 && (
+              {locationStore.allLocations.length !== 0 && (
                 <ul>
                   <li>City: {locationStore.currentLocation.city}</li>{" "}
                   <li>ip: {locationStore.currentLocation.ip}</li>
@@ -93,7 +93,7 @@ const App = () => {
                   <li>longitude: {locationStore.currentLocation.longitude}</li>
                   <li>country: {locationStore.currentLocation.country_name}</li>
                 </ul>
-              )} */}
+              )}
             </div>
           </div>
           <div className="search-block">
@@ -124,7 +124,7 @@ const App = () => {
             </div>
           </div>
           <div className="info-block">
-            {/* <div className="map-block">
+            <div className="map-block">
               <Map
                 viewport={{
                   longitude:
@@ -137,9 +137,9 @@ const App = () => {
                 }}
                 setViewport={setLastViewport}
               />
-            </div> */}
+            </div>
             <div className="data-block">
-              {/* {locationStore.allLocations.length !== 0 &&
+              {locationStore.allLocations.length !== 0 &&
                 locationStore.lastSearchLocation && (
                   <ul>
                     <li>City: {locationStore.lastSearchLocation.city}</li>
@@ -155,7 +155,7 @@ const App = () => {
                       country: {locationStore.lastSearchLocation.country_name}
                     </li>
                   </ul>
-                )} */}
+                )}
             </div>
           </div>
         </div>
