@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 // import { getUserLocation } from "./store/location/location.thunks";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch  } from "react-redux";
 // import { selectLocation } from "./store/location";
 // import { setLastSearch, addToAllSearch } from "./store/location";
 import { Map } from "./components/Map";
 import Button from "@material-ui/core/Button";
 import { TextField } from "@material-ui/core";
-import { Card } from "@material-ui/core";
-import Paper from "@material-ui/core/Paper";
-import { HistoryList } from "./components/historyList/HistoryList";
+// import { Card } from "@material-ui/core";
+// import Paper from "@material-ui/core/Paper";
+// import { HistoryList } from "./components/historyList/HistoryList";
 
 const App = () => {
   // const locationStore = useSelector(selectLocation);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const reg =
     "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
 
