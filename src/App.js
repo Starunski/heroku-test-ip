@@ -67,7 +67,7 @@ const App = () => {
       <div className="wrapper">
         {/* {locationStore.allLocations.length !== 0 && (
           <HistoryList locationStore={locationStore} /> */}
-        )}
+     
 
         <div className="wrapper-block">
           <div className="info-block">
